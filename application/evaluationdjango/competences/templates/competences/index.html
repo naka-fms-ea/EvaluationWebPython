@@ -1,0 +1,14 @@
+{% load static %}
+
+<!--<link rel="stylesheet" href="{% static 'competences/style.css' %}">-->
+
+{% if latest_skill_list %}
+    <ul>
+    {% for skill in latest_skill_list %}
+        <li>{{ skill.sk_name }} : {{ skill.sk_description }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No skill are available.</p>
+{% endif %}
+
