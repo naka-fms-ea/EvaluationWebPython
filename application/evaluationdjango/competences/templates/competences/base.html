@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+            {% block titre %}
+
+    {% endblock %}
+
+    </title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'competences/style.css' %}">
+
+</head>
+
+<body>
+
+
+<header>
+    <nav class="navbar">
+            <div class="logo">Compétences</div>
+            <ul class="nav-links">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Présentation</a></li>
+                <li><a href="#">Comment utiliser l'application ?</a></li>
+            </ul>
+            <div>
+                <input type="search" id="maRecherche" name="test" placeholder="Recherche sur le site…" />
+                <button>Rechercher</button>
+            </div>
+             <div>
+                 {% if request.user.is_authenticated %}
+                    {{request.user.username}} <br>
+                <form action="{% url 'competences:deconnection' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="button button2">Se déconnecter</button>
+                </form>
+                {% else %}
+                {% if "/connection/" not in request.path %}
+                 <a href="#"><button class="button button1">Inscription</button></a>
+                <a href="{% url 'competences:connection' %}"><button class="button button2">Connexion</button></a>
+
+                {% endif %}
+
+                {% endif %}
+            </div>
+    </nav>
+
+</header>
+
+
+<main>
+    {% block competences %}
+
+    {% endblock %}
+
+
+</main>
+
+</body>
+</html>
