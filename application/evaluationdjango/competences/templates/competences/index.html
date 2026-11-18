@@ -1,14 +1,29 @@
+{% extends "competences/base.html" %}
 {% load static %}
 
-<!--<link rel="stylesheet" href="{% static 'competences/style.css' %}">-->
+    {% block titre %}
+        Compétences
+    {% endblock %}
 
-{% if latest_skill_list %}
-    <ul>
-    {% for skill in latest_skill_list %}
-        <li>{{ skill.sk_name }} : {{ skill.sk_description }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No skill are available.</p>
-{% endif %}
+
+     {% block competences %}
+
+         {% if latest_skill_list %}
+          <div class="id_div_test">
+            {% for skill in latest_skill_list %}
+                <a href="#">
+                    <img src="{% static 'competences/images/image.jpg' %}" alt="Test" style="width:100px;height:100px;">
+                </a>
+                <div>
+
+                    <p>{{ skill.sk_name }}</p>
+                    <p>{{ skill.sk_description }}</p>
+                </div>
+            {% endfor %}
+          </div>
+        {% else %}
+            <p>No skill are available.</p>
+        {% endif %}
+
+    {% endblock %}
 
