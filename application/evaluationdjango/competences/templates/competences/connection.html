@@ -1,0 +1,19 @@
+{% extends "competences/base.html" %}
+{% block titre %}
+test
+
+{% endblock %}
+
+{% block competences %}
+<br>
+<br>
+<br>
+<br>
+    <form method="post">
+    {% csrf_token %}
+
+    {{ form.as_table }}
+        <button type="submit">se connecter</button>
+    </form>
+
+{% endblock %}
