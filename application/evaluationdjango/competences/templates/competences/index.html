@@ -7,19 +7,42 @@
 
 
      {% block competences %}
+         <h2>Les prochains créneaux</h2>
+         {% if item_list %}
 
-         {% if latest_skill_list %}
           <div class="id_div_test">
-            {% for skill in latest_skill_list %}
-                <a href="#">
-                    <img src="{% static 'competences/images/image.jpg' %}" alt="Test" style="width:100px;height:100px;">
-                </a>
-                <div>
 
-                    <p>{{ skill.sk_name }}</p>
-                    <p>{{ skill.sk_description }}</p>
+            {% for item in item_list %}
+              {% if item.get_type == "slot" %}
+                <div class="item">
+
+                    <div>
+                    <a href="#">
+                        <img src="{% static 'competences/images/image.jpg' %}" alt="Test" style="width:100px;height:100px;">
+                    </a>
+                    </div>
+
+                    <div>
+                        <p>{{ item.sl_date }}</p>
+                        <p>{{ item.ac_fk_activity }}</p>
+                    </div>
+
                 </div>
+              {% endif %}
             {% endfor %}
+
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <h2>Les compétences proposées</h2>
+          <div class="skills-links">
+             {% for item in item_list %}
+                {% if item.get_type == "skill" %}
+              <a href="#">{{ skill.sk_name }}</a>
+                {% endif %}
+             {% endfor %}
           </div>
         {% else %}
             <p>No skill are available.</p>
