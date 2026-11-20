@@ -3,6 +3,8 @@ from django.db import models
 # Create your models here.
 
 
+
+
 class User(models.Model):
     us_first_name = models.CharField(max_length=40)
     us_last_name = models.CharField(max_length=100)
@@ -13,6 +15,10 @@ class User(models.Model):
     def __str__(self):
         return f"{self.us_first_name} {self.us_last_name} {self.us_email}"
 
+    def get_slots(self):
+        slots = self.slot_set.all()
+        return slots
+
 
 class Skill(models.Model):
     sk_name = models.CharField(max_length=200)
@@ -21,6 +27,17 @@ class Skill(models.Model):
 
     def __str__(self):
         return f"{self.sk_name} : {self.sk_description}"
+
+    def get_activities(self):
+        activities = self.activity_set.all()
+        return activities
+
+    def get_type(self):
+        if self.sk_name != "":
+            test = 'skill'
+        else:
+            test = 'skill'
+        return test
 
 
 class Activity(models.Model):
@@ -39,3 +56,10 @@ class Slot(models.Model):
 
     def __str__(self):
         return f"{self.sl_date}"
+
+    def get_type(self):
+        if self.sl_date != "":
+            test = 'slot'
+        else:
+            test = 'slot'
+        return test
