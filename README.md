@@ -4,9 +4,11 @@ Il s'agit de spécifier, concevoir et réaliser le prototype d'un système qui p
 
 L’ensemble des productions attendues (feuille de route) :
 <br>
-<p>diagrammes UML (cas d’utilisation, classes, un diagramme de séquence d’un UC);</p>
-<p>spécifications fonctionnelles avec rôle (visiteur, utilisateur);</p>
-<p>maquettes de l’application (page d’accueil au minimum);</p>
-<p>architecture (URLs, vues, templates) du « projet » Django calqué sur celle du tutoriel augmenté et ne comportant qu’une seule « application »</p>
-<p>utilisation de Git et de toutes les bonnes pratiques vues depuis le début (environnement virtuel dédié au projet, POO, [optionnel] typage statique, exceptions, [optionnel] journalisation, anglais, lisibilité, docstrings) ;</p>
-<p>démonstration.</p>
+<ul>
+<li>diagrammes UML (cas d’utilisation, classes, un diagramme de séquence d’un UC);</li>
+<li>spécifications fonctionnelles avec rôle (visiteur, utilisateur);</li>
+<li>maquettes de l’application (page d’accueil au minimum);</li>
+<li>architecture (URLs, vues, templates) du « projet » Django calqué sur celle du tutoriel augmenté et ne comportant qu’une seule « application »</li>
+<li>utilisation de Git et de toutes les bonnes pratiques vues depuis le début (environnement virtuel dédié au projet, POO, [optionnel] typage statique, exceptions, [optionnel] journalisation, anglais, lisibilité, docstrings) ;</li>
+<li>démonstration.</li>
+</ul>
